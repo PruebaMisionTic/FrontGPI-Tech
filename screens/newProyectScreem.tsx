@@ -8,30 +8,47 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import alert from '../components/Alert';
 
 
-const NEW_TASK_CREATION= gql`
-mutation  createTaskList($title:String!){
-  createTaskList(title:$title){
-    id,
-    createdAt,
-    progress
-    title
-    users {
-      id
-      nombre
-    }
+const NEW_PROY_CREATION= gql`
+mutation createproyecto(
+  $nombreProy: String!, 
+  $objGneral: String!, 
+  $objEspe: String!, 
+  $presupuesto: Float!, 
+  $estadoPro: String!, 
+  $fase: String!) {
+  createproyecto(
+    nombreProy: $nombreProy, 
+    objGneral: $objGneral, 
+    objEspe: $objEspe, 
+    presupuesto: $presupuesto, 
+    estadoPro: $estadoPro, 
+    fase: $fase
+    ) {
+    nombreProy
+    objGneral
+    objEspe
+    presupuesto
+    estadoPro
+    fase
   }
- }
+}
 `;
 
 const NewProyectScreen =() => {
-  const [title, setTitle]=useState("")
+  const [nombreProy, setNombreProy]=useState("")
+  const [objGneral, setObjGneral]=useState("")
+  const [objEspe, setObjEspe]=useState("")
+  const [presupuesto,setPresupuesto]= useState("")
+  const [estadoPro,setEstadoPro]= useState("")
+  const [fase,setFase]= useState("")
+  
 
   const navegation= useNavigation();
 
   // mutation[0] : A function to trigger the mutation
   // mutation[1] : result object 
   //    { data,error, loading }
-  const [newTask, { data, error, loading }] = useMutation(NEW_TASK_CREATION);
+  const [NewProyect, { data, error, loading }] = useMutation(NEW_PROY_CREATION);
   if (error) {
     Alert.alert('Error registrando tarea, por favor intente de nuevo')
   }
@@ -45,19 +62,22 @@ const NewProyectScreen =() => {
       }
     })
   }*/}
-  const reload = ()=>{
+
+ /*   const reload = ()=>{
     window.location.reload();
-  }
+  }  */
 
   if (data) {
-        alert("Tarea creada Correctamente")
+    AsyncStorage.setItem('token',data.NewProyect.token)
+    .then(()=>{ 
+        
         navegation.navigate("Projects");
-        reload()
+        
+      })
   }
 
-
   const onSubmit = () =>{
-    newTask({variables: {title}})
+    NewProyect({variables: {nombreProy, objGneral,objEspe,presupuesto,estadoPro,fase}})
   }
  
 
@@ -71,8 +91,8 @@ const NewProyectScreen =() => {
       
     <TextInput
     placeholder="Titulo del Proyecto"
-    value={title}
-    onChangeText={setTitle}
+    value={nombreProy}
+    onChangeText={setNombreProy}
     style={{
       color:"blue",
       fontSize:18,
@@ -82,31 +102,101 @@ const NewProyectScreen =() => {
     }}
     />
 
+    <TextInput
+        placeholder="Objetivo General"
+        value={objGneral}
+        onChangeText={setObjGneral}
+        style={{
+          color:"blue",
+          fontSize:18,
+          marginVertical:25,
+          width:'50%',
+          marginHorizontal:"25%"
+        }}
+        />
+
+    <TextInput
+        placeholder="Objetivo Especifico"
+        value={objEspe}
+        onChangeText={setObjEspe}
+        style={{
+          color:"blue",
+          fontSize:18,
+          marginVertical:25,
+          width:'50%',
+          marginHorizontal:"25%"
+        }}
+        />
+
+      <TextInput
+          placeholder="Presupuesto"
+          value={presupuesto}
+          onChangeText={setPresupuesto}
+          style={{
+            color:"blue",
+            fontSize:18,
+            marginVertical:25,
+            width:'50%',
+            marginHorizontal:"25%"
+          }}
+          />
+
+      <Picker
+        selectedValue={estadoPro}
+        style={{
+          color:"black",
+          fontSize:18,
+          marginVertical:25,
+          width:'50%',
+          marginHorizontal:"25%"
+        }}
+        onValueChange={(itemValue, itemIndex) => setEstadoPro(itemValue)}
+      >
+        <Picker.Item label="Inactivo" value="Inactivo" />  
+        <Picker.Item label="Activo" value="Activo" />
+              
+      </Picker>
+
+      <Picker
+        selectedValue={fase}
+        style={{
+          color:"black",
+          fontSize:18,
+          marginVertical:25,
+          width:'50%',
+          marginHorizontal:"25%"
+        }}
+        onValueChange={(itemValue, itemIndex) => setFase(itemValue)}
+      >
+        <Picker.Item label="Nulo" value="Nulo" />
+       
+      </Picker>
 
 
-<Pressable
-onPress={onSubmit} 
-  style={{
-    backgroundColor:'#004080',
-    height:50,
-    borderRadius:5,
-    alignItems:'center',
-    justifyContent:"center",
-    marginTop:30,
-    width:'50%',
-    marginHorizontal:"25%",
-  }}
-  >
-    {loading && <ActivityIndicator />}
-    <Text
-      style={{
-        color:"white",
-        fontSize:18,
-        fontWeight:"bold"
-      }} >
-        Crear Proyecto
-        </Text>
-  </Pressable>
+      <Pressable
+      onPress={onSubmit} 
+        style={{
+          backgroundColor:'#004080',
+          height:50,
+          borderRadius:5,
+          alignItems:'center',
+          justifyContent:"center",
+          marginTop:30,
+          width:'50%',
+          marginHorizontal:"25%",
+        }}
+        >
+          {loading && <ActivityIndicator />}
+          <Text
+            style={{
+              color:"white",
+              fontSize:18,
+              fontWeight:"bold"
+            }} >
+              Crear Proyecto
+              </Text>
+        </Pressable>
+
     </View>
   );
 

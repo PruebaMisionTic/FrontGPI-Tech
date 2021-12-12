@@ -53,7 +53,7 @@
        <Stack.Screen name="ToDoScreen" component={ToDoScreen} />
        <Stack.Screen name="SignIn" component={SignInScreen} />
        <Stack.Screen name="SignUp" component={SignUpScreen} />
-       <Stack.Screen name="NewProject" component={NewProyectScreen} />
+       <Stack.Screen name="NewProyect" component={NewProyectScreen} />
        <Stack.Screen name="NewToDo" component={newToDo} />
        <Stack.Screen name="UpdateUsuario" component={UpdateUsuarioScreen} />
      </Stack.Navigator>

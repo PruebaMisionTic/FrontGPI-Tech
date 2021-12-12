@@ -24,7 +24,7 @@
    SignUp: undefined;
    Splash:undefined;
    Projects:undefined;
-   NewProject:undefined;
+   NewProyect:undefined;
    NewToDo:undefined;
    UpdateUsuario:undefined;
    

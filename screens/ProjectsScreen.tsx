@@ -37,7 +37,7 @@ export default function ProjectsScreen() {
   }
 
   const newProyect = async () =>{
-    navegation.navigate("NewProject")
+    navegation.navigate("NewProyect")
   }
 
   const [project, setProjects] = useState([]);

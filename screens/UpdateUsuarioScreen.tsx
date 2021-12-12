@@ -62,7 +62,7 @@ const UpdateUsuario =() => {
   }*/}
 
   if (data) {
-    AsyncStorage.setItem('token', data.signUp.token)
+    AsyncStorage.setItem('token', data.token)
       .then(() => {
         navegation.navigate("Home");
       })
