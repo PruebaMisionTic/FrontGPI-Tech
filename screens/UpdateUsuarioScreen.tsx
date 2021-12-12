@@ -5,6 +5,7 @@ import { ActivityIndicator, Alert, Picker, Pressable, TextInput } from 'react-na
 import { Text, View } from '../components/Themed'
 import { useMutation, gql } from '@apollo/client';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AntDesign } from '@expo/vector-icons';
 
 
 
@@ -186,4 +187,4 @@ const UpdateUsuario =() => {
 
   
 }
-export default UpdateUsuario;
+export default UpdateUsuario

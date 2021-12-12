@@ -17,7 +17,7 @@ const SplashScreen = () => {
       if (await isAuthenticated()) {
         navigation.navigate("Home");
       } else {
-        navigation.navigate("Home");
+        navigation.navigate("SignIn");
       }
     }
 

@@ -10,15 +10,21 @@ import alert from '../components/Alert';
 import { AntDesign } from '@expo/vector-icons';
 
 const MY_PROJECTS = gql`
-query MyTaskLists {
-  myTaskLists {
-  id
-  title 
-  createdAt
-  users {
+query misProyectos {
+  misProyectos {
     id
-    nombre
-  } 
+    nombreProy
+    objGneral
+    objEspe
+    presupuesto
+    createdAt
+    estadoPro
+    fase
+    user {
+      nombre
+      apellido
+      rol
+    }
   }
 }
 `;
@@ -46,7 +52,7 @@ export default function ProjectsScreen() {
 
   useEffect(() => {
     if (data) {
-      setProjects(data.myTaskLists);
+      setProjects(data.misProyectos);
     }
   }, [data]);
 
@@ -100,7 +106,7 @@ export default function ProjectsScreen() {
           fontSize:18,
           fontWeight:"bold"
         }}>
-          Insertar Nuevo Proyecto
+          Crear Nuevo Proyecto
         </Text>
       </Pressable>
       
@@ -132,12 +138,12 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    borderColor:"white",
+    borderColor:"black",
     borderRadius:2,
     fontWeight: 'bold',
     textAlign:"center",
     padding: 5,
-    color:"white",
+    color:"black",
     width:"80%",
     marginHorizontal:"10%",
     marginBottom:30

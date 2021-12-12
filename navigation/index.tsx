@@ -75,20 +75,13 @@
         screenOptions={{
           tabBarActiveTintColor: Colors[colorScheme].tint,
         }}>
-        <BottomTab.Screen
-          name="TabOne"
-          component={UpdateUsuarioScreen}
-          options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
-            title: 'Actualizar Usuario',
-            tabBarIcon: ({ color }) => <AntDesign name="home" size={24} color="black" />,
-          })}
-        />
+
 
         <BottomTab.Screen
           name="TabOne"
           component={ProjectsScreen}
           options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
-            title: 'Home',
+            title: 'Proyectos',
             tabBarIcon: ({ color }) => <AntDesign name="home" size={24} color="white" />,
           })}
         />
