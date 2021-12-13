@@ -1,13 +1,15 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, ScrollView } from 'react-native'
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
   },
+  
   root: {
-    flexDirection: 'column',
+    flexDirection: 'row',
     width: '50%',
     padding: 20,
   },
@@ -32,9 +34,12 @@ const styles = StyleSheet.create({
     borderRadius: 1,
     backgroundColor: '#2B4055',
     marginLeft: 5,
-    flexDirection: "column",
+    flexDirection: "row",
     height:20
   }
+  
+ 
+
 });
 
 export default styles;

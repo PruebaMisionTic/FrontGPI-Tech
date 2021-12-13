@@ -26,6 +26,7 @@
    Projects:undefined;
    NewProyect:undefined;
    NewToDo:undefined;
+   Usuarios:undefined;
    UpdateUsuario:undefined;
    
  };
@@ -39,6 +40,8 @@
    TabOne: undefined;
    TabTwo: undefined;
    TabThree:undefined;
+   Projects:undefined;
+   UpdateUsuarios:undefined
   
  };
  

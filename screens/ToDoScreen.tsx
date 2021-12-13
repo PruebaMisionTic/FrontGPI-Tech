@@ -23,7 +23,9 @@ query getTaslist($id:ID!) {
 `
 
 const CREATE_TODO = gql`
-mutation createToDo($content:String!, $taskListId: ID!) {
+mutation createToDo(
+  $content:String!, 
+  $taskListId: ID!) {
   createToDo(content: $content, taskListId: $taskListId) {
     id
 		content

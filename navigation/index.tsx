@@ -23,6 +23,7 @@
  import InformationScreen from '../screens/InformationScreen';
  import NewProyectScreen from '../screens/newProyectScreem';
  import newToDo from '../screens/newToDo';
+ import Usuarios from '../screens/UserScreen';
  import UpdateUsuarioScreen from '../screens/UpdateUsuarioScreen';
 
  
@@ -46,15 +47,16 @@
    return (
      <Stack.Navigator>
        <Stack.Screen name="Splash" component={SplashScreen} />
-       <Stack.Screen name="Root" component={SplashScreen} options={{ headerShown: false }}/>
+       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }}/>
        <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
-       <Stack.Screen name="Home" component={ProjectsScreen} />
-       <Stack.Screen name="Projects" component={ProjectsScreen} />
+       <Stack.Screen name="Home" component={BottomTabNavigator} />
+       <Stack.Screen name="Projects" component={BottomTabNavigator} />
        <Stack.Screen name="ToDoScreen" component={ToDoScreen} />
        <Stack.Screen name="SignIn" component={SignInScreen} />
        <Stack.Screen name="SignUp" component={SignUpScreen} />
        <Stack.Screen name="NewProyect" component={NewProyectScreen} />
        <Stack.Screen name="NewToDo" component={newToDo} />
+       <Stack.Screen name="Usuarios" component={BottomTabNavigator} />
        <Stack.Screen name="UpdateUsuario" component={UpdateUsuarioScreen} />
      </Stack.Navigator>
    );
@@ -87,9 +89,9 @@
         />
         <BottomTab.Screen
           name="TabTwo"
-          component={InformationScreen}
+          component={Usuarios}
           options={{
-            title: 'Información',
+            title: 'Usuarios',
             tabBarIcon: ({ color }) => <Entypo name="info-with-circle" size={24} color="white" />,
           }}
         />
