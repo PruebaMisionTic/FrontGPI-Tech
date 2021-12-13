@@ -41,7 +41,9 @@
    TabTwo: undefined;
    TabThree:undefined;
    Projects:undefined;
-   UpdateUsuarios:undefined
+   UpdateUsuarios:undefined;
+   TabFour: undefined;
+   TabFive: undefined;
   
  };
  

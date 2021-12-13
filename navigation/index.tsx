@@ -58,6 +58,7 @@
        <Stack.Screen name="NewToDo" component={newToDo} />
        <Stack.Screen name="Usuarios" component={BottomTabNavigator} />
        <Stack.Screen name="UpdateUsuario" component={UpdateUsuarioScreen} />
+       
      </Stack.Navigator>
    );
  }
@@ -84,7 +85,7 @@
           component={ProjectsScreen}
           options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
             title: 'Proyectos',
-            tabBarIcon: ({ color }) => <AntDesign name="home" size={24} color="white" />,
+            tabBarIcon: ({ color }) => <Entypo name="archive" size={24} color="white" />,
           })}
         />
         <BottomTab.Screen
@@ -92,15 +93,31 @@
           component={Usuarios}
           options={{
             title: 'Usuarios',
-            tabBarIcon: ({ color }) => <Entypo name="info-with-circle" size={24} color="white" />,
+            tabBarIcon: ({ color }) => <Entypo name="user" size={24} color="white" />,
           }}
         />
         <BottomTab.Screen
             name="TabThree"
             component={InformationScreen}
             options={{
-              title: 'Tab3',
-              tabBarIcon: ({ color }) => <MaterialIcons name="post-add" size={24} color="white" />,
+              title: 'avances',
+              tabBarIcon: ({ color }) => <MaterialIcons name="folder" size={24} color="white" />,
+            }}
+          />
+           <BottomTab.Screen
+            name="TabFour"
+            component={InformationScreen}
+            options={{
+              title: 'inscripciones',
+              tabBarIcon: ({ color }) => <Entypo name="add-to-list" size={24} color="white" />,
+            }}
+          />
+          <BottomTab.Screen
+            name="TabFive"
+            component={InformationScreen}
+            options={{
+              title: 'informacion',
+              tabBarIcon: ({ color }) => <Entypo name="info-with-circle" size={24} color="white" />,
             }}
           />
  
