@@ -1,8 +1,8 @@
 import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
-import { useState } from 'react';
-import { ActivityIndicator, Alert, Picker, Pressable, TextInput } from 'react-native';
-import { Text, View } from '../components/Themed';
+import { useState, useEffect } from 'react';
+import { ActivityIndicator, Alert, FlatList, Picker, Pressable, TextInput } from 'react-native';
+import { Text, View} from '../components/Themed';
 import { useMutation, gql } from '@apollo/client';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import alert from '../components/Alert';
@@ -10,26 +10,34 @@ import alert from '../components/Alert';
 
 const NEW_PROY_CREATION= gql`
 mutation createproyecto(
-  $nombreProy: String!, 
-  $objGneral: String!, 
-  $objEspe: String!, 
-  $presupuesto: Float!, 
-  $estadoPro: String!, 
-  $fase: String!) {
-  createproyecto(
-    nombreProy: $nombreProy, 
-    objGneral: $objGneral, 
-    objEspe: $objEspe, 
-    presupuesto: $presupuesto, 
-    estadoPro: $estadoPro, 
-    fase: $fase
-    ) {
-    nombreProy
-    objGneral
-    objEspe
-    presupuesto
-    estadoPro
-    fase
+	$nombreProy:String!,
+	$objGneral:String!,
+	$objEspe:String!,
+	$presupuesto:String!,
+	$estadoPro:String!,
+	$fase:String!){
+	createproyecto(
+		nombreProy:$nombreProy, 
+		objGneral:$objGneral,
+		objEspe:$objEspe, 
+		presupuesto:$presupuesto, 
+		estadoPro:$estadoPro, 
+		fase:$fase){
+     id,
+     nombreProy,
+     objGneral,
+     objEspe,
+     presupuesto,
+     createdAt
+  user {
+    id
+    identificacion
+    nombre
+    apellido
+    rol
+  }
+  estadoPro
+  fase    
   }
 }
 `;
@@ -39,7 +47,7 @@ const NewProyectScreen =() => {
   const [objGneral, setObjGneral]=useState("")
   const [objEspe, setObjEspe]=useState("")
   const [presupuesto,setPresupuesto]= useState("")
-  const [estadoPro,setEstadoPro]= useState("")
+  const [estadoPro,setEstadoPro]= useState(Number)
   const [fase,setFase]= useState("")
   
 
@@ -48,13 +56,20 @@ const NewProyectScreen =() => {
   // mutation[0] : A function to trigger the mutation
   // mutation[1] : result object 
   //    { data,error, loading }
-  const [NewProyect, { data, error, loading }] = useMutation(NEW_PROY_CREATION);
-  if (error) {
-    Alert.alert('Error registrando tarea, por favor intente de nuevo')
-  }
+
+  const [newProyect, { data, error, loading }] = useMutation(NEW_PROY_CREATION);
+  /* useEffect(() => {
+    if (error) {
+      alert("Error registrando Proyecto")
+    }
+  }, [error]) */
+
+ if (error) {
+    Alert.alert('Error registrando Proyecto')
+  } 
 
   {/*if (data){
-    AsyncStorage.setItem("token",data.signUp.token)
+    AsyncStorage.setItem("token",data.newProyect.token)
     .then(()=>{
       AsyncStorage.setItem("rol",data.signUp.rol)
       if (data.signUp.rol=="Estudiante"){
@@ -63,21 +78,18 @@ const NewProyectScreen =() => {
     })
   }*/}
 
- /*   const reload = ()=>{
+    const reload = ()=>{
     window.location.reload();
-  }  */
+  }  
 
   if (data) {
-    AsyncStorage.setItem('token',data.NewProyect.token)
-    .then(()=>{ 
-        
+     alert('Proyecto creado correctamente')       
         navegation.navigate("Projects");
-        
-      })
+        reload()
   }
 
   const onSubmit = () =>{
-    NewProyect({variables: {nombreProy, objGneral,objEspe,presupuesto,estadoPro,fase}})
+    newProyect({variables: { nombreProy, objGneral, objEspe, presupuesto, estadoPro, fase }})
   }
  
 
@@ -199,8 +211,6 @@ const NewProyectScreen =() => {
 
     </View>
   );
-
-  
 }
 
 export default NewProyectScreen

@@ -3,19 +3,19 @@ import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
   },
   root: {
-    flexDirection: 'row',
-    width: '100%',
-    padding: 10,
+    flexDirection: 'column',
+    width: '50%',
+    padding: 20,
   },
   iconContainer: {
     width: 40,
     height: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
     borderRadius: 5,
     backgroundColor: '#2B4055',
     marginRight: 10,
@@ -27,12 +27,12 @@ const styles = StyleSheet.create({
   },
   time: {
     color: 'darkgrey',
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
     borderRadius: 1,
     backgroundColor: '#2B4055',
     marginLeft: 5,
-    flexDirection: "row",
+    flexDirection: "column",
     height:20
   }
 });
