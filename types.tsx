@@ -28,6 +28,11 @@
    NewToDo:undefined;
    Usuarios:undefined;
    UpdateUsuario:undefined;
+   avances: undefined;
+   newAvances: undefined;
+   inscripcion: undefined;
+   newInscripcion: undefined;
+  
    
  };
  

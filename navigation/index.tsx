@@ -25,7 +25,10 @@
  import newToDo from '../screens/newToDo';
  import Usuarios from '../screens/UserScreen';
  import UpdateUsuarioScreen from '../screens/UpdateUsuarioScreen';
-
+import AvancesScreen from '../screens/AvancesScreen';
+import newAvanceScreen from '../screens/newAvanceScreen';
+import inscripcionesScreen from '../screens/inscripcionesScreen';
+import newInscripcionScreen from '../screens/newInscripcionScreen';
  
  export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
    return (
@@ -58,7 +61,10 @@
        <Stack.Screen name="NewToDo" component={newToDo} />
        <Stack.Screen name="Usuarios" component={BottomTabNavigator} />
        <Stack.Screen name="UpdateUsuario" component={UpdateUsuarioScreen} />
-       
+       <Stack.Screen name="avances" component={AvancesScreen} />
+       <Stack.Screen name="newAvances" component={newAvanceScreen} />
+       <Stack.Screen name="inscripcion" component={inscripcionesScreen} />
+       <Stack.Screen name="newInscripcion" component={newInscripcionScreen} />
      </Stack.Navigator>
    );
  }
@@ -98,7 +104,7 @@
         />
         <BottomTab.Screen
             name="TabThree"
-            component={InformationScreen}
+            component={AvancesScreen}
             options={{
               title: 'avances',
               tabBarIcon: ({ color }) => <MaterialIcons name="folder" size={24} color="white" />,
@@ -106,7 +112,7 @@
           />
            <BottomTab.Screen
             name="TabFour"
-            component={InformationScreen}
+            component={inscripcionesScreen}
             options={{
               title: 'inscripciones',
               tabBarIcon: ({ color }) => <Entypo name="add-to-list" size={24} color="white" />,
