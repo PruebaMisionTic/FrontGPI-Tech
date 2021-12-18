@@ -54,11 +54,11 @@ import newInscripcionScreen from '../screens/newInscripcionScreen';
        <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
        <Stack.Screen name="Home" component={BottomTabNavigator} />
        <Stack.Screen name="Projects" component={BottomTabNavigator} />
-       <Stack.Screen name="ToDoScreen" component={ToDoScreen} />
+       {/* <Stack.Screen name="ToDoScreen" component={ToDoScreen} /> */}
        <Stack.Screen name="SignIn" component={SignInScreen} />
        <Stack.Screen name="SignUp" component={SignUpScreen} />
        <Stack.Screen name="NewProyect" component={NewProyectScreen} />
-       <Stack.Screen name="NewToDo" component={newToDo} />
+       {/* <Stack.Screen name="NewToDo" component={newToDo} /> */}
        <Stack.Screen name="Usuarios" component={BottomTabNavigator} />
        <Stack.Screen name="UpdateUsuario" component={UpdateUsuarioScreen} />
        <Stack.Screen name="avances" component={AvancesScreen} />

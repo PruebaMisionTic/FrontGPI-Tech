@@ -14,6 +14,7 @@ const MY_INSCRIPCIONES = gql`
 query MisInscripciones {
   misInscripciones {
     id
+    
     estadoIns
   }
 }
@@ -72,7 +73,7 @@ export default function inscripcionesScreen() {
           Cerrar Sesión
         </Text>
       </Pressable>
-      <Text style={styles.title}>LISTA DE AVANCES</Text>
+      <Text style={styles.title}>LISTA DE INSCRIPCIONES</Text>
       <FlatList
         data={inscripcion}
         renderItem={({item}) => <><InscripcionItem inscripcion={item} /></>}

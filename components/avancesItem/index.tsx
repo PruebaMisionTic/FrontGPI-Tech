@@ -19,7 +19,7 @@ const AvancesItem = ({ avances }: avancesItemProps) => {
   const navigation = useNavigation();
 
   const onPress = () => {
-    navigation.navigate('ToDoScreen' )
+    navigation.navigate('Home' )
   }
 
   const cleanTask = () => {

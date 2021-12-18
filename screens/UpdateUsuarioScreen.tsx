@@ -64,7 +64,7 @@ const UpdateUsuario =() => {
   if (data) {
     AsyncStorage.setItem('token', data.token)
       .then(() => {
-        navegation.navigate("Home");
+        navegation.navigate("Usuarios");
       })
   }
 

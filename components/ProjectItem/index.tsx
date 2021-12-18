@@ -20,7 +20,7 @@ const ProjectItem = ({ project }: ProjectItemProps) => {
   const navigation = useNavigation();
 
   const onPress = () => {
-    navigation.navigate('ToDoScreen' )
+    navigation.navigate('Home' )
   }
 
   const cleanTask = () => {

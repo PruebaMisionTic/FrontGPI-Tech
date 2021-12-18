@@ -20,7 +20,7 @@ const UserItem = ({ user }: UserItemProps) => {
   const navigation = useNavigation();
 
   const onPress = () => {
-    navigation.navigate('ToDoScreen' )
+    navigation.navigate('Home' )
   }
 
   const cleanTask = () => {

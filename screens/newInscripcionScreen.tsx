@@ -8,11 +8,15 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import alert from '../components/Alert';
 
 
-const INSCRIPCION_CREATION= gql`
+const INSCRIPCION_CREATION = gql`
 mutation createinscripciones(
+  $proyectosId:ID!,
+  $userId: ID!,
 	$estadoIns:String!,)
 	{
   createinscripciones(
+    proyectosId:$proyectosId,
+    userId:$userId,
 		estadoIns:$estadoIns,
     )}
 		{
