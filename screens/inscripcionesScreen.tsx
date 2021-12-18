@@ -28,7 +28,7 @@ export default function inscripcionesScreen() {
   }
 
   const newInscripcion = async () =>{
-    navegation.navigate("newInscripcion")
+    navegation.navigate("Home")
   }
 
   const [inscripcion, setinscripcion] = useState([]);
@@ -79,7 +79,7 @@ export default function inscripcionesScreen() {
         renderItem={({item}) => <><InscripcionItem inscripcion={item} /></>}
         style={{ width: '100%' }}
       />
-       <Pressable
+{/*        <Pressable
       onPress={newInscripcion} 
       style={{
         backgroundColor:'#004080',
@@ -99,7 +99,7 @@ export default function inscripcionesScreen() {
         }}>
           Crear Nueva inscripcion
         </Text>
-      </Pressable>
+      </Pressable> */}
       
     </View>
 

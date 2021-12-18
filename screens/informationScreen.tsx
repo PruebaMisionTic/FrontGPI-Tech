@@ -8,9 +8,12 @@ export default function InformationScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Información</Text>
-      <Text>Somos el Grupo 16,17 y 18 del Ciclo 4A</Text>
+      <Text>G.P.I-Tech</Text>
       <Text>Programación web</Text>
-      <Text>MisiónTIC 2022</Text>
+      <Text>MisiónTIC 2022 Ciclo 4</Text>
+      <Text>GRUPO CONFORMADO</Text>
+      <Text>Wolfang Jesus Vera Mendoza </Text>
+      <Text>Santiago Hewitt Ramirez</Text>
     </View>
   );
 }
